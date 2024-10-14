@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from '../shared/product.iterface';
 
 @Component({
   selector: 'app-parent',
@@ -6,10 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./parent.component.css'],
 })
 export class ParentComponent {
-  cart = [];
-
-  onItemAdded(item) {
-    this.cart.push(item);
+  // ====> додав типіхацію
+  cart: Product[] = [];
+  onItemAdded(item: Product) {
+    // =====> змінив метод push на поверхневе копібвання
+    this.cart = [...this.cart, item];
     console.log('Cart updated:', this.cart);
   }
 }

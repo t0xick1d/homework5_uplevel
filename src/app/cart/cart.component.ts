@@ -1,4 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { Product } from '../shared/product.iterface';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +19,7 @@ import { Component, Input, SimpleChanges } from '@angular/core';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
-  @Input() cartItems = [];
+  @Input() cartItems: Product[] = [];
 
   ngOnInit() {
     console.log('CartComponent initialized');
@@ -26,7 +27,7 @@ export class CartComponent {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.cartItems) {
+    if (changes) {
       console.log('Cart items updated:', this.cartItems);
     }
   }
