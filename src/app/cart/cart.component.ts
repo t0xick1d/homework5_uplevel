@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Product } from '../shared/product.iterface';
 
 @Component({
@@ -18,7 +18,7 @@ import { Product } from '../shared/product.iterface';
   `,
   styleUrls: ['./cart.component.css'],
 })
-export class CartComponent {
+export class CartComponent implements OnInit, OnChanges {
   @Input() cartItems: Product[] = [];
 
   ngOnInit() {
